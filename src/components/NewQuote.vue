@@ -9,19 +9,21 @@
       <button class="btn btn-primary" @click.prevent="createNew">Add Quote</button>
     </div>
   </form>
+</div>
 </template>
 
 
 <script>
 export default {
-  data: function()
+  data: function() {
     return {
-      quote: ''
+      quote: ""
     };
   },
   methods: {
-    createNew(){
-      
+    createNew() {
+      this.$emit("quoteAdded", this.quote);
+      this.quote = "";
     }
   }
 };
